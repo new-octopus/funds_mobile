@@ -1,3 +1,5 @@
+<html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,15 +55,16 @@
 				</div>
 
 				<div data-role="content">
-					<div style="height:100px;background-color:rgb(255, 0, 0)">
+					<div style="height:100px;background-color:#DCDCDC">
 						<p>昨日收益</p>
-						<p style="font-size:30;color:rgb(255, 0, 0)">478.63</p>
+						<p style="font-size:30;color:rgb(255, 0, 0)">12.63</p>
 					</div>
 
-					<div style="height:100px;">
+					<div style="height:100px;background-color:#DCDCDC">
 						<p>总金额(元)</p>
 						<p style="font-size:30;color:rgb(255, 0, 0)">478.63</p>
 					</div>
+					<br>
 
 					<div style="height:100px;background-color:#DCDCDC">
 						<div class="ui-grid-a">
@@ -70,7 +73,7 @@
 									<br>2.3
 								</span>
 							</div>
-							<div class="ui-block-b">
+							<div class="ui-block-b" onclick="window.open('#servenDayRate','_self')">
 								<span>七日年化收益率(%)
 									<br>5.2100
 								</span>
@@ -83,18 +86,17 @@
 								<span>&emsp;
 								</span>
 							</div>
-							<div class="ui-block-a">
+							<div class="ui-block-a" onclick="window.open('#allIncome','_self')">
 								<span>近一周收益(元)
 									<br>0.02</span>
 							</div>
-							<div class="ui-block-b">
+							<div class="ui-block-b" onclick="window.open('#allIncome','_self')">
 								<span>近一月收益(元)
 									<br>1.19</span>
 							</div>
 						</div>
 					</div>
 				</div>
-
 
 				<div data-role="footer" align="center">
 					<div data-role="controlgroup" data-type="horizontal">
@@ -127,15 +129,33 @@
 				</ul>
 			</div>
 			<div id="tabthree" class="ui-body-d ui-content">
+
+				<div data-role="popup" id="popupPassword" data-theme="a" class="ui-corner-all">
+					<form>
+						<div style="padding:10px 20px;">
+							<h3>修改密码</h3>
+							<label for="oldPwd" class="ui-hidden-accessible">旧密码：</label>
+							<input name="oldPwd" id="oldPwd" value="" placeholder="旧密码" data-theme="a" type="password" data-clear-btn="true">
+							<label for="newPwd" class="ui-hidden-accessible">新密码：</label>
+							<input name="newPwd" id="newPwd" value="" placeholder="新密码" data-theme="a" type="password" data-clear-btn="true">
+							<label for="newPwdConfirm" class="ui-hidden-accessible">确认密码：</label>
+							<input name="newPwdConfirm" id="newPwdConfirm" value="" placeholder="确认密码" data-theme="a" type="password" data-clear-btn="true">
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b">确认</a>
+							<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">取消</a>
+						</div>
+					</form>
+				</div>
+
 				<ul data-role="listview" data-inset="true">
 					<li data-icon="carat-r">
-						<a href="#">
+						<a href="#popupPassword" data-rel="popup" data-position-to="window" data-transition="pop">
 							修改密码
 						</a>
 					</li>
 				</ul>
 
 				<a href="#loginPage" class="ui-btn ui-btn-e">退出当前账号</a>
+
 			</div>
 
 		</div>
@@ -143,7 +163,9 @@
 		<div data-role-footer>
 
 		</div>
+
 	</div>
+
 
 	<div data-role="page" id="intoPage">
 		<div data-role="header" data-theme="b">
@@ -218,7 +240,7 @@
 					<a href="#">转入</a>
 				</li>
 				<li>
-					<a href="#">转出</a>
+					<a href="#detailMoneyOutPage">转出</a>
 				</li>
 				<li>
 					<a href="#">收益</a>
@@ -354,159 +376,57 @@
 						</font>
 					</span>
 				</div>
+			</div>
+		</div>
+	</div>
 
+	<div data-role="page" id="detailMoneyOutPage">
+
+		<div data-role="popup" id="popupMenu1" data-theme="b">
+			<ul data-role="listview" data-inset="true" style="min-width:210px;">
+				<li>
+					<a href="#detailPage">明细</a>
+				</li>
+				<li>
+					<a href="#">转入</a>
+				</li>
+				<li>
+					<a href="#detailMoneyOutPage">转出</a>
+				</li>
+				<li>
+					<a href="#">收益</a>
+				</li>
+			</ul>
+		</div>
+
+		<div data-role="header" data-position="fixed">
+			<a href="#mainPage" data-role="button">返回</a>
+			<h1>
+				转出&emsp;
+				<a href="#popupMenu1" data-rel="popup" data-transition="slidedown" class="ui-corner-all ui-icon-edit ui-btn-icon-notext ui-btn-inline">edit</a>
+			</h1>
+		</div>
+
+		<div data-role="content">
+			<div class="ui-grid-b">
 				<div class="ui-block-a">
-					<span>收益
+					<span>转出
 						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
+						<font style="color:#cbc7c7">2014/04/17 11:12</font>
 					</span>
 				</div>
 				<div class="ui-block-b">
-					&emsp;
+					<span>&emsp;
+					</span>
 				</div>
 				<div class="ui-block-c" align="right">
 					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
+						<font style="color:#228B22">
+							<strong>-200</strong>
 						</font>
 					</span>
 				</div>
 
-				<div class="ui-block-a">
-					<span>收益
-						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
-					</span>
-				</div>
-				<div class="ui-block-b">
-					&emsp;
-				</div>
-				<div class="ui-block-c" align="right">
-					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
-						</font>
-					</span>
-				</div>
-
-				<div class="ui-block-a">
-					<span>收益
-						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
-					</span>
-				</div>
-				<div class="ui-block-b">
-					&emsp;
-				</div>
-				<div class="ui-block-c" align="right">
-					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
-						</font>
-					</span>
-				</div>
-
-				<div class="ui-block-a">
-					<span>收益
-						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
-					</span>
-				</div>
-				<div class="ui-block-b">
-					&emsp;
-				</div>
-				<div class="ui-block-c" align="right">
-					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
-						</font>
-					</span>
-				</div>
-
-				<div class="ui-block-a">
-					<span>收益
-						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
-					</span>
-				</div>
-				<div class="ui-block-b">
-					&emsp;
-				</div>
-				<div class="ui-block-c" align="right">
-					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
-						</font>
-					</span>
-				</div>
-
-				<div class="ui-block-a">
-					<span>收益
-						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
-					</span>
-				</div>
-				<div class="ui-block-b">
-					&emsp;
-				</div>
-				<div class="ui-block-c" align="right">
-					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
-						</font>
-					</span>
-				</div>
-
-				<div class="ui-block-a">
-					<span>收益
-						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
-					</span>
-				</div>
-				<div class="ui-block-b">
-					&emsp;
-				</div>
-				<div class="ui-block-c" align="right">
-					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
-						</font>
-					</span>
-				</div>
-
-				<div class="ui-block-a">
-					<span>收益
-						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
-					</span>
-				</div>
-				<div class="ui-block-b">
-					&emsp;
-				</div>
-				<div class="ui-block-c" align="right">
-					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
-						</font>
-					</span>
-				</div>
-
-				<div class="ui-block-a">
-					<span>收益
-						<br>
-						<font style="color:#cbc7c7">2014/04/18</font>
-					</span>
-				</div>
-				<div class="ui-block-b">
-					&emsp;
-				</div>
-				<div class="ui-block-c" align="right">
-					<span>
-						<font style="color:#FF7F50">
-							<strong>+1.12</strong>
-						</font>
-					</span>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -524,18 +444,139 @@
 						累计收益（元）
 					</font>
 					<br>
-					<font style="color:#FF7F50">
-						<strong>15.6</strong>
-					</font>
+					<p style="font-size:30px">
+						<font style="color:#FF7F50">
+							<strong>5.8</strong>
+						</font>
+					</p>
 				</span>
+			</div>
+
+			<div class="ui-grid-b">
+				<div class="ui-block-a">
+					<span>
+						<font>2014/04/17</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					<span>&emsp;
+					</span>
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.2</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>
+						<font>2014/04/16</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					<span>&emsp;
+					</span>
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+2.3</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>
+						<font>2014/04/15</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					<span>&emsp;
+					</span>
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+2.4</strong>
+						</font>
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
 
+	<div data-role="page" id="servenDayRate">
+		<div data-role="header" data-theme="b">
+			<a href="#mainPage" data-role="button" data-rel="back">返回</a>
+			<h1>七日年化收益率</h1>
+		</div>
 
-	<div data-role="page" id="passwordPage">
+		<div data-role="content">
+			<div align="center">
+				<span>
+					<font style="color:#cbc7c7">
+						近一月平均收益率
+					</font>
+					<br>
+					<p style="font-size:30px">
+						<font style="color:#FF7F50">
+							<strong>5.3640%</strong>
+						</font>
+					</p>
+				</span>
+			</div>
 
+			<div class="ui-grid-b">
+				<div class="ui-block-a">
+					<span>
+						<font>2014/04/17</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					<span>&emsp;
+					</span>
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<strong>5.2000%</strong>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>
+						<font>2014/04/16</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					<span>&emsp;
+					</span>
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<strong>5.2100%</strong>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>
+						<font>2014/04/15</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					<span>&emsp;
+					</span>
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<strong>5.3400%</strong>
+					</span>
+				</div>
+			</div>
+		</div>
 	</div>
+
 
 	<div data-role="page" id="addBankPage">
 		<div data-role="header">
@@ -568,10 +609,46 @@
 				</div>
 
 				<div align="center">
-					<a href="#" data-role="button">下一步</a>
+					<a href="#addBankNextPage" data-role="button">下一步</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div data-role="page" id="addBankNextPage">
+		<div data-role="header">
+			<a href="#mainPage" data-role="button" data-rel="back" class="ui-btn-left">上一步</a>
+			<h1>
+				<span>添加银行卡</span>
+			</h1>
+		</div>
+
+		<div data-role="content">
+			<span>
+				<font style="color:#cbc7c7">请填写开户人信息。</font>
+			</span>
+
+			<form method="post" action="#">
+				<div data-role="fieldcontain">
+					<label for="cardOwnerName">开户人姓名</label>
+					<input data-clear-btn="true" type="text" name="cardOwnerName" id="cardOwnerName" placeholder="开户人姓名">
+
+					<label for="ownerNo">身份证号</label>
+					<input data-clear-btn="true" type="text" name="ownerNo" id="ownerNo" placeholder="身份证号">
+					<label for="phoneNo">预留手机号</label>
+					<input data-clear-btn="true" type="text" name="phoneNo" id="phoneNo" placeholder="预留手机号">
+					<label for="verificationCode">验证码</label>
+					<input data-clear-btn="true" type="text" name="verificationCode" id="verificationCode" placeholder="验证码">
+
+				</div>
+
+				<div align="center">
+					<a href="#" data-role="button">确认</a>
 				</div>
 			</form>
 		</div>
 	</div>
 
 </body>
+
+</html>
