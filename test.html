@@ -1,0 +1,577 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+
+<body>
+
+	<div data-role="page" id="loginPage">
+		<div data-role="header" data-theme="b">
+			<h1>登录</h1>
+		</div>
+
+		<div data-role="content">
+			<form method="post" action="#">
+				<div data-role="fieldcontain">
+					<label for="userName">账号:</label>
+					<input type="text" name="userName" id="userName" value="admin">
+
+					<label for="password">密码:</label>
+					<input type="password" name="password" id="password" value="admin">
+				</div>
+
+				<div align="center">
+					<a href="#mainPage" data-role="button">登录</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div data-role="page" id="mainPage">
+		<div data-role="tabs" id="tabs" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li class="ui-btn-active">
+						<a href="#tabone" class="ui-btn-active" data-icon="grid">基金账户管理</a>
+					</li>
+					<li>
+						<a href="#tabtwo" data-icon="star">银行卡管理</a>
+					</li>
+					<li>
+						<a href="#tabthree" data-icon="gear">账户管理</a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="tabone" class="ui-body-d ui-content">
+				<div data-role="header">
+					<h1>基金宝</h1>
+					<a href="#detailPage" class="ui-btn ui-shadow ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-inline ui-btn-right">明细</a>
+				</div>
+
+				<div data-role="content">
+					<div style="height:100px;background-color:rgb(255, 0, 0)">
+						<p>昨日收益</p>
+						<p style="font-size:30;color:rgb(255, 0, 0)">478.63</p>
+					</div>
+
+					<div style="height:100px;">
+						<p>总金额(元)</p>
+						<p style="font-size:30;color:rgb(255, 0, 0)">478.63</p>
+					</div>
+
+					<div style="height:100px;background-color:#DCDCDC">
+						<div class="ui-grid-a">
+							<div class="ui-block-a" onclick="window.open('#allIncome','_self')">
+								<span>累计收益(元)
+									<br>2.3
+								</span>
+							</div>
+							<div class="ui-block-b">
+								<span>七日年化收益率(%)
+									<br>5.2100
+								</span>
+							</div>
+							<div class="ui-block-a">
+								<span>&emsp;
+								</span>
+							</div>
+							<div class="ui-block-b">
+								<span>&emsp;
+								</span>
+							</div>
+							<div class="ui-block-a">
+								<span>近一周收益(元)
+									<br>0.02</span>
+							</div>
+							<div class="ui-block-b">
+								<span>近一月收益(元)
+									<br>1.19</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div data-role="footer" align="center">
+					<div data-role="controlgroup" data-type="horizontal">
+						<a href="#intoPage" data-role="button">转入</a>
+						<a href="#outPage" data-role="button">转出</a>
+					</div>
+				</div>
+			</div>
+			<div id="tabtwo">
+				<br>
+				<ul data-role="listview" data-inset="true">
+					<li data-icon="carat-r">
+						<a href="#">
+							<span>中国建设银行
+								<br>
+								<font style="color:#cbc7c7">尾号1234</font>
+							</span>
+						</a>
+					</li>
+				</ul>
+				<br>
+				<ul data-role="listview" data-inset="true">
+					<li data-icon="plus">
+						<a href="#addBankPage">
+							<span>
+								<font style="color:rgb(255, 0, 0)">添加银行卡</font>
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="tabthree" class="ui-body-d ui-content">
+				<ul data-role="listview" data-inset="true">
+					<li data-icon="carat-r">
+						<a href="#">
+							修改密码
+						</a>
+					</li>
+				</ul>
+
+				<a href="#loginPage" class="ui-btn ui-btn-e">退出当前账号</a>
+			</div>
+
+		</div>
+
+		<div data-role-footer>
+
+		</div>
+	</div>
+
+	<div data-role="page" id="intoPage">
+		<div data-role="header" data-theme="b">
+			<a href="#mainPage" data-role="button" data-rel="back">返回</a>
+			<h1>转入</h1>
+		</div>
+
+		<div data-role="content">
+			<form method="post" action="#">
+				<div data-role="fieldcontain">
+					<label for="amount">金额:</label>
+					<input data-clear-btn="true" type="text" name="amount" id="amount" placeholder="建议转入100元以上金额">
+				</div>
+
+				<div align="center">
+					<a href="#mainPage" data-role="button">确认转入</a>
+					<span>
+						<font style="color:#cbc7c7">支付资金安全，由平安保险全额承担</font>
+					</span>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div data-role="page" id="outPage">
+		<div data-role="header" data-theme="b">
+			<a href="#mainPage" data-role="button" data-rel="back">返回</a>
+			<h1>转出</h1>
+		</div>
+
+		<div data-role="content">
+			<form method="post" action="#">
+				<ul data-role="listview" data-inset="true">
+					<li data-icon="carat-r">
+						<a href="#">
+							<span>中国建设银行
+								<br>
+								<font style="color:#cbc7c7">尾号1234</font>
+							</span>
+						</a>
+					</li>
+					<li data-icon="delete">
+						基金宝总金额 1,021.22元
+					</li>
+				</ul>
+				<div align="left">
+					<span>
+						<font style="color:#cbc7c7">本次可转出最大金额1,021.22元</font>
+					</span>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="amount">金额:</label>
+					<input data-clear-btn="true" type="text" name="amount" id="amount" placeholder="转出金额">
+				</div>
+
+				<div align="center">
+					<a href="#mainPage" data-role="button">立即转出</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div data-role="page" id="detailPage">
+
+		<div data-role="popup" id="popupMenu" data-theme="b">
+			<ul data-role="listview" data-inset="true" style="min-width:210px;">
+				<li>
+					<a href="#detailPage">明细</a>
+				</li>
+				<li>
+					<a href="#">转入</a>
+				</li>
+				<li>
+					<a href="#">转出</a>
+				</li>
+				<li>
+					<a href="#">收益</a>
+				</li>
+			</ul>
+		</div>
+
+		<div data-role="header" data-position="fixed">
+			<a href="#mainPage" data-role="button" data-rel="back">返回</a>
+			<h1>
+				细明&emsp;
+				<a href="#popupMenu" data-rel="popup" data-transition="slidedown" class="ui-corner-all ui-icon-edit ui-btn-icon-notext ui-btn-inline">edit</a>
+			</h1>
+		</div>
+
+		<div data-role="content">
+			<div class="ui-grid-b">
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+				<div class="ui-block-a">
+					<span>转入
+						<br>
+						<font style="color:#cbc7c7">2014/04/18 11:12</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					<span>&emsp;
+					</span>
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1500</strong>
+						</font>
+					</span>
+				</div>
+				<div class="ui-block-a">
+					<span>转出
+						<br>
+						<font style="color:#cbc7c7">2014/04/17 11:12</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					<span>&emsp;
+					</span>
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#228B22">
+							<strong>-200</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+
+				<div class="ui-block-a">
+					<span>收益
+						<br>
+						<font style="color:#cbc7c7">2014/04/18</font>
+					</span>
+				</div>
+				<div class="ui-block-b">
+					&emsp;
+				</div>
+				<div class="ui-block-c" align="right">
+					<span>
+						<font style="color:#FF7F50">
+							<strong>+1.12</strong>
+						</font>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="allIncome">
+		<div data-role="header" data-theme="b">
+			<a href="#mainPage" data-role="button" data-rel="back">返回</a>
+			<h1>累计收益</h1>
+		</div>
+
+		<div data-role="content">
+			<div align="center">
+				<span>
+					<font style="color:#cbc7c7">
+						累计收益（元）
+					</font>
+					<br>
+					<font style="color:#FF7F50">
+						<strong>15.6</strong>
+					</font>
+				</span>
+			</div>
+		</div>
+	</div>
+
+
+	<div data-role="page" id="passwordPage">
+
+	</div>
+
+	<div data-role="page" id="addBankPage">
+		<div data-role="header">
+			<h1>
+				<span>添加银行卡</span>
+			</h1>
+
+			<a href="#mainPage" data-role="button" data-rel="back" class="ui-btn-right">取消</a>
+		</div>
+
+		<div data-role="content">
+			<span>
+				<font style="color:#cbc7c7">请填写银行卡信息。</font>
+			</span>
+
+			<form method="post" action="#">
+				<div data-role="fieldcontain">
+					<label for="cardId">卡号</label>
+					<input data-clear-btn="true" type="text" name="cardId" id="cardId" placeholder="">
+
+					<label for="cardType">卡类型</label>
+					<select name="cardType" id="cardType">
+						<option value="0">请选择银行卡类型</option>
+						<option value="1">中国工商银行</option>
+						<option value="2">中国建设银行</option>
+						<option value="3">招商银行</option>
+						<option value="4">中国银行</option>
+					</select>
+
+				</div>
+
+				<div align="center">
+					<a href="#" data-role="button">下一步</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
